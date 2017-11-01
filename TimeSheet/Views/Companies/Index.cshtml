@@ -1,0 +1,37 @@
+﻿@model IEnumerable<TimeSheet.Models.Companies>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Manage Firms</h2>
+
+<p class="btn btn-default">@Html.ActionLink("Add Firms", "Create")</p><table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Enabled)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <a href="/AdminUsers/Index?name=@item.CompanyName">@Html.DisplayFor(modelItem => item.CompanyName)</a>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Enabled)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

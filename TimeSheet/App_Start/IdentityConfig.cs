@@ -30,7 +30,7 @@ namespace TimeSheet
 
         private async Task configSendGridasync(IdentityMessage message)
         {
-            var client = new SendGridClient("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");
+            var client = new SendGridClient("");
             var from = new EmailAddress("support@timesheet.com", "TimeSheet");
             var to = new EmailAddress(message.Destination);
             var subject = message.Subject;
